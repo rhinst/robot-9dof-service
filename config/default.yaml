@@ -1,0 +1,12 @@
+logging:
+  level: "info"
+  filename: ""
+redis:
+  host: "localhost"
+  port: 6379
+device:
+  name: "9DOF"
+  options:
+    gyro_addr: 0x6B
+    accel_addr: 0x19
+    compass_addr: 0x1E

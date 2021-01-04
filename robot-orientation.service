@@ -1,0 +1,11 @@
+[Unit]
+Description=Robot Orientation Service
+After=redis-server.service
+
+[Service]
+Type=simple
+WorkingDirectory=/robot/orientation
+ExecStart=/robot/orientation/venv/bin/api
+
+[Install]
+WantedBy=multi-user.target
