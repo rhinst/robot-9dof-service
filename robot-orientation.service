@@ -5,7 +5,7 @@ After=redis-server.service
 [Service]
 Type=simple
 WorkingDirectory=/robot/orientation
-ExecStart=/robot/orientation/venv/bin/api
+ExecStart=/robot/orientation/venv/bin/orientation
 
 [Install]
 WantedBy=multi-user.target
