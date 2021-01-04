@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import platform
 
 
@@ -10,7 +10,7 @@ setup(
   author='Rob Hinst',
   author_email='rob@hinst.net',
   license='MIT',
-  packages=['api'],
+  packages=find_packages(),
   data_files=[
     ('config', ['config/default.yaml']),
     ('config/dev', ['config/dev/env.yaml.dist']),
