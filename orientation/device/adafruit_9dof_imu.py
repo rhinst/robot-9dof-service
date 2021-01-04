@@ -4,6 +4,7 @@ from itertools import cycle
 import busio
 import adafruit_lsm303_accel
 import adafruit_lsm303dlh_mag
+from math import atan2, pi
 
 from ..logging import logger
 
@@ -29,10 +30,14 @@ def initialize(options: Dict):
 
 def get_distance():
     while cycle([True]):
-        print("Acceleration (m/s^2): X=%0.3f Y=%0.3f Z=%0.3f"%accel.acceleration)
-        print("Magnetometer (micro-Teslas)): X=%0.3f Y=%0.3f Z=%0.3f"%mag.magnetic)
-        sleep(1)
+        #print("Acceleration (m/s^2): X=%0.3f Y=%0.3f Z=%0.3f"%accel.acceleration)
+        #print("Magnetometer (micro-Teslas)): X=%0.3f Y=%0.3f Z=%0.3f"%mag.magnetic)
+        heading = (atan2(mag.magnetic[1], mag.magnetic[0]) * 180) / pi
+        if heading < 0:
+            heading = 360 + heading
+        print(f"Compass Heading: {heading}")
+        sleep(0.5)
 
 
 def cleanup():
-    bus.close()
+    pass
